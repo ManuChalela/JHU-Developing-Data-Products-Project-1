@@ -5138,20 +5138,20 @@ summary {
 <p>Create a web page using R Markdown that features a map created with Leaflet.</p>
 <p>Host your webpage on either GitHub Pages, RPubs, or NeoCities.</p>
 <p>Your webpage must contain the date that you created the document, and it must contain a map created with Leaflet. We would love to see you show off your creativity!</p>
-<pre class="r"><code>summary(cars)</code></pre>
-<pre><code>##      speed           dist       
-##  Min.   : 4.0   Min.   :  2.00  
-##  1st Qu.:12.0   1st Qu.: 26.00  
-##  Median :15.0   Median : 36.00  
-##  Mean   :15.4   Mean   : 42.98  
-##  3rd Qu.:19.0   3rd Qu.: 56.00  
-##  Max.   :25.0   Max.   :120.00</code></pre>
 </div>
 <div id="map" class="section level2">
 <h2>Map</h2>
+<pre class="r"><code>library(leaflet)
+lats&lt;- -34.79610190980089
+longs&lt;- -56.06735883068287
+places&lt;- &#39;Estadio Campeón del Siglo&#39;
+states&lt;- &#39;Montevideo, Uruguay&#39;
+df&lt;-data.frame(lat=lats, lng=longs, places=places, states=states, statecolor=&quot;yellow&quot;)
+
+df%&gt;%leaflet()%&gt;%addTiles()%&gt;%addCircleMarkers(color=df$statecolor, popup = df$places) %&gt;% addLegend(labels = states, colors=&quot;yellow&quot;) %&gt;% addProviderTiles(providers$OpenStreetMap)</code></pre>
 <pre><code>## Assuming &quot;lng&quot; and &quot;lat&quot; are longitude and latitude, respectively</code></pre>
-<div id="htmlwidget-1912b4509c53f4b75302" style="width:672px;height:480px;" class="leaflet html-widget"></div>
-<script type="application/json" data-for="htmlwidget-1912b4509c53f4b75302">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addTiles","args":["//{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":1,"detectRetina":false,"attribution":"&copy; <a href=\"http://openstreetmap.org\">OpenStreetMap<\/a> contributors, <a href=\"http://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA<\/a>"}]},{"method":"addCircleMarkers","args":[-34.7961019098009,-56.0673588306829,10,null,null,{"interactive":true,"className":"","stroke":true,"color":"yellow","weight":5,"opacity":0.5,"fill":true,"fillColor":"yellow","fillOpacity":0.2},null,null,"Estadio Campeón del Siglo",null,null,{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]},{"method":"addLegend","args":[{"colors":["yellow"],"labels":["Montevideo, Uruguay"],"na_color":null,"na_label":"NA","opacity":0.5,"position":"topright","type":"unknown","title":null,"extra":null,"layerId":null,"className":"info legend","group":null}]},{"method":"addProviderTiles","args":["OpenStreetMap",null,null,{"errorTileUrl":"","noWrap":false,"detectRetina":false}]}],"limits":{"lat":[-34.7961019098009,-34.7961019098009],"lng":[-56.0673588306829,-56.0673588306829]}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-3b35eaf20c360eb19d4f" style="width:672px;height:480px;" class="leaflet html-widget"></div>
+<script type="application/json" data-for="htmlwidget-3b35eaf20c360eb19d4f">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addTiles","args":["//{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":1,"detectRetina":false,"attribution":"&copy; <a href=\"http://openstreetmap.org\">OpenStreetMap<\/a> contributors, <a href=\"http://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA<\/a>"}]},{"method":"addCircleMarkers","args":[-34.7961019098009,-56.0673588306829,10,null,null,{"interactive":true,"className":"","stroke":true,"color":"yellow","weight":5,"opacity":0.5,"fill":true,"fillColor":"yellow","fillOpacity":0.2},null,null,"Estadio Campeón del Siglo",null,null,{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]},{"method":"addLegend","args":[{"colors":["yellow"],"labels":["Montevideo, Uruguay"],"na_color":null,"na_label":"NA","opacity":0.5,"position":"topright","type":"unknown","title":null,"extra":null,"layerId":null,"className":"info legend","group":null}]},{"method":"addProviderTiles","args":["OpenStreetMap",null,null,{"errorTileUrl":"","noWrap":false,"detectRetina":false}]}],"limits":{"lat":[-34.7961019098009,-34.7961019098009],"lng":[-56.0673588306829,-56.0673588306829]}},"evals":[],"jsHooks":[]}</script>
 </div>
 
 

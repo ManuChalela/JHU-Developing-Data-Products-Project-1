@@ -19,7 +19,7 @@ Your webpage must contain the date that you created the document, and it must co
 
 ## Map
 
-```{r pressure, echo=FALSE}
+```{r pressure, echo=TRUE}
 library(leaflet)
 lats<- -34.79610190980089
 longs<- -56.06735883068287
